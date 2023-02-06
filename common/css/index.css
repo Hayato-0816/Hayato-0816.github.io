@@ -1,0 +1,883 @@
+html,body{
+    background: #F0F0F1;
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    color: #363b3f;
+}
+
+html,body,nav,li,a,p{
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #363b3f;
+}
+
+a:hover,a:active{
+    animation: hoverIn 0.3s ease 1 forwards;
+}
+
+@keyframes hoverIn{
+    from{
+        color: #363b3f;
+    }to{
+        color: #e14d43;
+    }
+}
+
+h1{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+p{
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 30px;
+}
+
+button{
+    border: none;
+}
+
+.sec{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    width: 54vw;
+    margin-top: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 540px) {
+    h1{
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+    
+    p{
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: 25px;
+    }
+
+    .content{
+        width: 70vw;
+        margin-top: 50px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* ///////////////////////Loading/////////////////////// */
+#Loading{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #F0F0F1;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadImg{
+    display: flex;
+    align-items: center;
+}
+
+.loadImg p{
+    margin-left: 100px;
+    font-size: 16px;
+}
+
+.loadImg img{
+    width: 40vw;
+    height: auto;
+    transform-origin: center;
+    transform: rotate(0);
+    animation: loadspinner 15s linear infinite running;
+}
+
+@keyframes loadspinner {
+    from{
+        transform: rotate(0);
+    }to{
+        transform: rotate(360deg);
+    }
+}
+
+.loaded{
+    animation: loadedFade 1s ease 1 forwards;
+}
+
+@keyframes loadedFade {
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .loadImg p{
+        display: none;
+    }
+}
+
+/* ///////////////////////VIEW MORE/////////////////////// */
+.textCont{
+    position: relative;
+}
+
+.infoView{
+    margin-top: 30px;
+}
+
+.textCont a{
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textCont a::after{
+    content: "";
+    width: 110px;
+    height: 1px;
+    background: #e14d43;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+.textCont a:hover:after,.textCont a:active::after{
+    content: "";
+    animation: UnderLineFade 0.5s ease 1 forwards;
+}
+
+@keyframes UnderLineFade{
+    from{
+        transform: scale(0);
+    }to{
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .tex01{
+        height: 260px;
+    }
+
+    .textCont h1{
+        margin-bottom: 30px;
+    }
+
+    .textCont a{
+        bottom: 10px;
+    }
+
+    .textCont a::after{
+        width: 63px;
+    }
+
+    .infoView{
+        margin-top: 20px;
+    }
+}
+
+/* ///////////////////////header/////////////////////// */
+header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: fixed;
+    z-index: 1000;
+    animation: openHead 0.3s ease 1 forwards;
+}
+
+@keyframes openHead {
+    from{
+        top: -160px;
+    }to{
+        top: 0;
+    }
+}
+
+.Logo{
+    position: relative;
+    top: 90px;
+    left: 11vw;
+    z-index: 1000;
+}
+
+.Logo img{
+    width: 170px;
+    height: auto;
+}
+
+.hamburger{
+    position: relative;
+    top: 90px;
+    right: 11vw;
+    z-index: 5000;
+}
+
+.closeHead{
+    animation: closeHead 0.2s ease 1 forwards;
+}
+
+@keyframes closeHead {
+    from{
+        top: 0;
+    }to{
+        top: -160px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .Logo{
+        top: 50px;
+        left: 8vw;
+    }
+
+    .hamburger{
+        top: 45px;
+    }
+}
+
+/* ///////////////////////hamburgerMenu/////////////////////// */
+.hambMenu{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hambMenu span,.hambMenu span::before,.hambMenu span::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #363b3f;
+    position: relative;
+}
+
+.hambMenu span::before{
+    bottom: 9.5px;
+}
+
+.hambMenu span::after{
+    top: 9.5px;
+}
+
+#hambCheck{
+    display: none;
+}
+
+.hambMenu:hover span,.hambMenu:hover span::before,.hambMenu:hover span::after,.hambMenu:active span,.hambMenu:active span::before,.hambMenu:active span::after{
+    background: #e14d43;
+}
+
+#hambCheck:checked ~ .hambMenu span{
+    animation: hambCen01 0.2s ease 1 forwards;
+}
+
+@keyframes hambCen01 {
+    from{
+        background: #e14d43;
+    }to{
+        background: #f0f0f100;
+    }
+}
+
+.hambMenu span{
+    animation: hambCen02 0.2s ease 1 forwards;
+}
+
+@keyframes hambCen02 {
+    from{
+        background: #f0f0f100;
+    }
+}
+
+#hambCheck:checked ~ .hambMenu span::before{
+    animation: hambBF01 0.3s ease 1 forwards;
+}
+
+@keyframes hambBF01 {
+    from{
+        transform: rotate(0);
+    }to{
+        bottom: 0;
+        transform: rotate(45deg);
+        background: #F0F0F1;
+    }
+}
+
+.hambMenu span::before{
+    animation: hambBF02 0.3s ease 1 forwards;
+}
+
+@keyframes hambBF02 {
+    from{
+        bottom: 0;
+        transform: rotate(45deg);
+    }to{
+        transform: rotate(0);
+    }
+}
+
+#hambCheck:checked ~ .hambMenu span::after{
+    animation: hambAF01 0.3s ease 1 forwards;
+}
+
+@keyframes hambAF01 {
+    from{
+        transform: rotate(0);
+    }to{
+        top: 0;
+        transform: rotate(-45deg);
+        background: #F0F0F1;
+    }
+}
+
+.hambMenu span::after{
+    animation: hambAF02 0.3s ease 1 forwards;
+}
+
+@keyframes hambAF02 {
+    from{
+        top: 0;
+        transform: rotate(-45deg);
+    }to{
+        transform: rotate(0);
+    }
+}
+
+.menuContent{
+    display: none;
+    z-index: -100;
+}
+
+.menuContent a{
+    color: #F0F0F1;
+}
+
+#hambCheck:checked ~ .menuContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    position: fixed;
+    background: #363B3F;
+    animation: slideHamb 0.3s ease 1 forwards;
+}
+
+@keyframes slideHamb {
+    from{
+        top: 0;
+        right: -40vw;
+    }to{
+        top: 0;
+        right: 0;
+    }
+}
+
+.menuContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    position: fixed;
+    background: #363B3F;
+    animation: slideOutHamb 0.3s ease 1 forwards;
+}
+
+@keyframes slideOutHamb {
+    from{
+        top: 0;
+        right: 0;
+    }to{
+        top: 0;
+        right: -40vw;
+    }
+}
+
+.menuContent nav{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hambCheck:checked ~ .closeBack{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f0f0f159;
+    z-index: -200;
+    animation: fadeInHamb 0.2s ease 1 forwards;
+}
+
+@keyframes fadeInHamb {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .hambMenu:hover span,.hambMenu:hover span::before,.hambMenu:hover span::after{
+        background: #363b3f;
+    }
+
+    #hambCheck:checked ~ .menuContent{
+        width: 100vw;
+        height: 100vh;
+        background: #363B3F;
+        animation: slideHamb 0.3s ease 1 forwards;
+    }
+    
+    @keyframes slideHamb {
+        from{
+            top: 0;
+            right: -100vw;
+        }to{
+            top: 0;
+            right: 0;
+        }
+    }
+
+    .menuContent{
+        width: 100vw;
+        height: 100vh;
+        background: #363B3F;
+        animation: slideOutHamb 0.3s ease 1 forwards;
+    }
+
+    @keyframes slideOutHamb {
+        from{
+            top: 0;
+            right: 0;
+        }to{
+            top: 0;
+            right: -100vw;
+        }
+    }
+}
+
+/* ///////////////////////main_section01/////////////////////// */
+section{
+    display: flex;
+    position: relative;
+}
+
+.farstView{
+    height: 100vh;
+    z-index: 0;
+}
+
+.FV_p{
+    position: relative;
+    top: 33vh;
+    left: 11vw;
+    z-index: 100;
+}
+
+.FV_p h1{
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+.FV_p p{
+    margin-top: 30px;
+}
+
+.FV_p h1,.FV_p span{
+    padding: 2px;
+    background: #F0F0F1;
+}
+
+.PC_img{
+    width: 59vw;
+    height: 58vh;
+    position: absolute;
+    top: 27vh;
+    right: 0;
+}
+
+.SP_img{
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+.backgroundImg01{
+    width: 36.7vw;
+    height: 37.5vh;
+    background: #2B3743;
+    z-index: 0;
+}
+
+.PC_img img{
+    width: 53.1vw;
+    height: 51.3vh;
+    position: absolute;
+    top: 7.2vh;
+    right: 0;
+    z-index: 50;
+}
+
+.Scroll{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ScrollBar{
+    width: 1px;
+    height: 5.1vh;
+    background: #ffffff;
+}
+
+.ScrollBar::after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 5.1vh;
+    background: #e14d43;
+    transform-origin: center top;
+    transform: scale(0);
+    animation: scrollIn 2s ease infinite;
+}
+
+@keyframes scrollIn{
+    from{
+        transform: scale(0);
+    }to{
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    /* .farstView{
+        max-height: 90vh;
+    } */
+
+    .FV_p{
+        top: 32vh;
+        left: 8vw;
+    }
+
+    .FV_p h1{
+        margin-bottom: 8px;
+    }
+
+    .FV_p p{
+        margin-top: 25px;
+    }
+
+    .PC_img{
+        display: none;
+    }
+
+    .SP_img{
+        display: block;
+        top: 165px;
+    }
+
+    .SP_img img{
+        width: 70vw;
+        min-width: 315px;
+        height: auto;
+    }
+}
+
+/* ///////////////////////main_section02/////////////////////// */
+.section02_img{
+    width: 23vw;
+    height: auto;
+    position: relative;
+}
+
+.OrionBase{
+    width: 23vw;
+    height: auto;
+}
+
+.OrionHover{
+    width: 23vw;
+    height: auto;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    animation: OrionFadeOut 1.3s ease-out 1 forwards;
+}
+
+.OrionHover:hover,.OrionHover:active{
+    animation: OrionFadeIn 1s ease 1 forwards;
+}
+
+.section02_img::after{
+    content: "オリオン座";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    color: #F0F0F1;
+    opacity: 0;
+    animation: OrionFadeOut 1s ease-out 1 forwards;
+}
+
+.section02_img:hover::after{
+    animation: OrionFadeIn 1s ease 1 forwards;
+}
+
+.section02_imgSP{
+    display: none;
+}
+
+@keyframes OrionFadeIn{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 0.8;
+    }
+}
+
+@keyframes OrionFadeOut{
+    from{
+        opacity: 0.8;
+    }to{
+        opacity: 0;
+    }
+}
+
+.sec03_img img{
+    width: 25.3vw;
+    height: auto;
+}
+
+.sec03_imgSP{
+    display: none;
+}
+
+@media screen and (max-width: 540px) {
+    .tex02{
+        height: 200px;
+    }
+
+    .textCont p{
+        line-height: 15px;
+    }
+
+    .contSP{
+        display: flex;
+    }
+
+    .tex02{
+        order: 3;
+    }
+
+    .sec03_img{
+        order: 1;
+        display: none;
+    }
+
+    .sec03_imgSP{
+        order: 2;
+        display: block;
+    }
+
+    .sec03_imgSP img{
+        width: 70vw;
+    }
+
+    .section02_img{
+        display: none;
+    }
+    
+    .section02_imgSP{
+        display: block;
+    }
+}
+
+/* ///////////////////////main_section03(contact)/////////////////////// */
+.contact{
+    margin-top: 200px;
+    color: #F0F0F1;
+    background: #363B3F;
+}
+
+.contactForm{
+    height: 860px;
+    width: 54vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formPost{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formCont{
+    width: 495px;
+    margin-top: 20px;
+}
+
+.howForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    font-size: 15px;
+}
+
+input,textarea{
+    resize: none;
+    width: 100%;
+    color: #000;
+    background: #F0F0F1;
+    box-sizing: border-box;
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    font-weight: 500;
+}
+
+input{
+    height: 30px;
+    border: none;
+}
+
+textarea{
+    height: 230px;
+    border: none;
+}
+
+.inputName{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputName input{
+    width: 240px;
+}
+
+input:focus{
+    outline: none;
+    border: 1.5px solid #69a8bb;
+}
+
+textarea:focus{
+    outline: none;
+    border: 1.5px solid #69a8bb;
+}
+
+#btn{
+    margin-top: 10px;
+    height: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+    background: #F0F0F1;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+#btn:hover,#btn:active{
+    color: #69a8bb;
+    border: 1px solid #69a8bb;
+}
+
+form p{
+    display: none;
+}
+
+.warName,.warAdd,.warSub,.warMes,.warning{
+    height: 26px;
+    display: block;
+    color: #e14d43;
+}
+
+@media screen and (max-width: 540px) {
+    .contact{
+        margin-top: 50px;
+    }
+
+    .contactForm{
+        height: 860px;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contactForm h1{
+        margin-bottom: 30px;
+    }
+
+    .formPost{
+        margin-top: 30px;
+    }
+
+    .formCont{
+        width: 70vw;
+        margin-top: 20px;
+    }
+
+    .howForm{
+        display: block;
+    }
+
+    .inputName input{
+        width: 34vw;
+    }
+
+    label{
+        font-size: 12px;
+    }
+}
+
+/* ///////////////////////footer/////////////////////// */
+footer{
+    margin: 0 90px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
